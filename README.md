@@ -7,7 +7,7 @@
 ## **ABSTRACT**
 
 <p align=justify>
-This project is based on my interest in learning to play the piano in my spare time. As everyone knows, learning to play an instrument is difficult and requires a lot of time and dedication. In my case, I am a computer engineer and for lack of time I decided to start a project to start playing the piano using a software guide implemented with LED lights on each piano key. My interest in this software has increased throughout the development and has ended up becoming a bot that plays the piano.
+This project is based on my interest in learning to play the piano in my spare time. As everyone knows, learning to play an instrument is difficult and requires a lot of time and dedication. In my case, I am a computer engineer and for lack of time I decided to start a project to start playing the piano using a software teacher implemented with LED lights on each piano key. My interest in this software has increased throughout the development and has ended up becoming a bot that plays the piano.
 </p>
 
 ## **PROGRAMS OF THIS PROJECT**
