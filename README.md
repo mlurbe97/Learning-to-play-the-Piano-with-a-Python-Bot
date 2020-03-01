@@ -16,7 +16,7 @@ This project is based on my interest in learning to play the piano in my spare t
 
 - Program *pianoPlayPi.py* is the program to play with Servo motors.
 - Folder  *partitures* contains example music sheets to play with previous program.
-- **Actual version of the code supports only multiple notes with same tempo in the same thread. Multi-thread is supported for simulate two virtual hands with their own music sheet.**
+- **Actual version of the code supports only multiple notes with same tempo in the same thread. Multi-thread is supported for simulate two virtual hands with their own music sheet. Additionally, the actual implementation corresponds to two notes for each servo motor because the actual prototype doesn't have enough space between piano keys.**
 
 ### VIRTUAL PIANO
 
@@ -68,15 +68,15 @@ If you want to play *ledPi.py* program you need:
 
 ### **SET UP HARDWARE CONNECTIONS**
 
-- buzzerPi.py:
+- buzzerPi.py: The following image shows how to connect one buzzer to the Raspberry Pi. If you have more than one, you have to connect each one to one of the available GPIO ports of your board and enable it in the code.
 
 ![](doc/images/gpio_buzzer.png)
 
-- ledPi.py:
+- ledPi.py: The following image shows how to connect one LED to the channel 0 of the controller. If you have more than one, you have to connect each one to each controller channel.
 
 ![](doc/images/gpio_led.png)
 
-- pianoPlayPi.py:
+- pianoPlayPi.py: The following image shows how to connect one servo motor to the channel 0 of the controller. If you have more than one, you have to connect each one to each controller channel.
 
 ![](doc/images/gpio_servo.png)
 
@@ -104,12 +104,12 @@ If you want to play *ledPi.py* program you need:
 
     ```./pianoPlayPi.py partitures/partiture_hand_1.txt partitures/partiture_hand_2.txt```
 
-**NOTE: Music sheets for dual hand simulated piano, as in real life, shouldn't contains the same notes (or piano key) at the same time, there is no reason to play with two hands the same notes.**
+**NOTE: Music sheets for dual hand simulated piano, as in real life, shouldn't contains the same notes (or piano keys) at the same time, there is no reason to play with two hands the same notes.**
 
 ### **MUSIC SHEETS**
 
 <p align=justify>
-I'm trying to find a lib or website that provides music sheets in plain text for bots or in more complex way, develop a machine learning algorithm to recognise notes in pdf or image based music sheets. The idea is to give to the piano bot the capacity of play any kind of song without having to rewrite it again specifically for him.
+I'm trying to find a lib or website that provides music sheets in plain text for bots or in more complex way, develop a machine learning algorithm to recognise notes in pdf or image based music sheets. The idea is to give the piano bot the capacity of play any kind of song without having to rewrite the music sheet specifically for him.
 </p>
 
 #### STYLE
@@ -185,7 +185,7 @@ Music Sheets for the piano are composed by a file of tuples (note,tempo), where 
 </tbody>
 </table>
 
-In addition, you can play two or more notes at the same time if they have the same tempo in the same thread, separating them with a tab (\t) key value. The file will be like this:
+In addition, you can play two or more notes at the same time if they have the same tempo in the same thread, separating them with a tab value key (\t). The file will be like this:
 
 - For one note:
 
@@ -210,6 +210,8 @@ In addition, you can play two or more notes at the same time if they have the sa
     la,n    mi,n
     si,n    re,n
     do2,n   do,n
+
+**NOTE: Remember that there are no spaces between notes, they are tab key values (\t).**
 
 ### **PIANO FREQUENCIES**
 
