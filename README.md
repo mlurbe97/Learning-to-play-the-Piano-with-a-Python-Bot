@@ -10,21 +10,24 @@
 This project is based on my interest in learning to play the piano in my spare time. As everyone knows, learning to play an instrument is difficult and requires a lot of time and dedication. In my case, I am a computer engineer and for lack of time I decided to start a project to start playing the piano using a software teacher implemented with LED lights on each piano key. My interest in this software has increased throughout the development and has ended up becoming a bot that plays the piano.
 </p>
 
-## **PROGRAMS OF THIS PROJECT**
+## **PROGRAMS AVAILABLE ON THIS PROJECT**
 
 ### PIANO PLAYING BOT
 
 - Program *pianoPlayPi.py* is the program to play with Servo motors.
 - Folder  *partitures* contains example music sheets to play with previous program.
+- **Actual version of the code supports only multiple notes with same tempo in the same thread. Multi-thread is supported for simulate two virtual hands with their own partiture.**
 
 ### VIRTUAL PIANO
 
 - Program *buzzerPi.py* is a program to play songs with a passive buzzer using the frequencies of piano notes. To play multiple notes at the same time you need as many as notes are wanted to play at the same time.
+- **Actual version of the code only supports one note each time.**
 
 ### LEARNING TO PLAY THE PIANO
 
 - Program *ledPi.py* is a program to learn to play the piano using a servo controller for switching LEDs, each LED corresponds to one note, you need as many LEDs as notes are wanted to play. 
 - This program was the first implementation and was designed to learn to play the piano by placing a LED on top of each key to play it every time a LED was turned on.
+- **Actual version of the code supports multiple notes with same tempo in the same thread. No multi-thread support yet.**
 
 **GOOGLE ASSISTANT SUPPORT**
 

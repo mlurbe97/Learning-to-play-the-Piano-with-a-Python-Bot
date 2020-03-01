@@ -7,14 +7,15 @@
 #	under certain conditions; type `show c' for details.
 
 ########################################
-#		Imports		       #
+#			Imports					   #
 ########################################
 import time
 import sys
 import RPi.GPIO as GPIO
+#end Imports.
 
 ########################################
-#	Initialize buzzer      #
+#			Initialize buzzer	       #
 ########################################
 
 #Disable warnings (optional)
@@ -23,19 +24,21 @@ GPIO.setwarnings(False);
 #Select GPIO mode
 GPIO.setmode(GPIO.BCM);
 
-#Set BUZZER  - pin 23 as output
+#Set BUZZER  - pin 23 as output (as many as notes)
 BUZZER =23;
 GPIO.setup(BUZZER,GPIO.OUT);
+#end Initialize buzzer.
 
 ########################################
-#	Global variables               #
+#		Global variables               #
 ########################################
 
 # Song to be played.
 song = [];
+#end Global variables.
 
 ########################################
-#	Music notes available          #
+#		Music notes available          #
 ########################################
 
 # Frecuency of each note.
@@ -65,29 +68,45 @@ music_notes = {
 ########################################
 
 # Values of each type of note.
-redonda = 0.8;
-blanca = 0.4;
-negra = 0.3;
+dobleredonda = 3.2
+redonda = 1.6;
+blancaplus = 1.2;
+blancasemi = 1;
+blanca = 0.8;
+negraplus = 0.6;
+negrasemi = 0.5;
+negra = 0.4;
 corchea = 0.2;
 semicorchea = 0.1;
+ssemicorchea = 0.05;
+sssemicorchea = 0.025;
 
 # Each tempo with each value.
 tempo_notes = {
+	"dr":dobleredonda,
 	"r":redonda,
+	"b+":blancaplus,
+	"b-":blancasemi,
 	"b":blanca,
+	"n+":negraplus,
+	"n-":negrasemi,
 	"n":negra,
 	"c":corchea,
-	"sc":semicorchea
+	"sc":semicorchea,
+	"ssc":ssemicorchea,
+	"sssc":sssemicorchea
 };
+#end Note tempo defines.
 
 ########################################
-#	play_note function             #
+#			usage function             #
 ########################################
 def usage(program_name):
 	print("Usage:\n\tpython3 "+program_name+" partitures/partiture.txt\nor:\n\t./"+program_name+" partitures/partiture.txt");
+#end usage function.
 
 ########################################
-#	play_note function             #
+#		play_note function             #
 ########################################
 def play_note(the_note):
 	halveWaveTime = 1 / (the_note[0] * 2 );
@@ -98,9 +117,10 @@ def play_note(the_note):
 		GPIO.output(BUZZER, False);
 		time.sleep(halveWaveTime);
 	time.sleep(the_note[1] *0.1);
+#end play_note function.
 
 ########################################
-#	get_partitures function        #
+#		get_partitures function        #
 ########################################
 def get_partiture(partiture):
 	try:
@@ -116,9 +136,10 @@ def get_partiture(partiture):
 			song.append(tupla);
 		except:
 			continue;
+#end get_partitures function.
 
 #########################################
-#    Read arguments and get partiture   #
+#    Read arguments and get partitures  #
 #########################################
 
 # Get program name.
@@ -138,11 +159,22 @@ partiture = sys.argv[1];
 
 # Get the partiture.
 get_partiture(partiture);
+#end Read arguments and get partitures.
 
 #########################################
-#		Play Song		#
+#			Play Song					#
 #########################################
 print('Playing piano, press Ctrl-C to quit...')
-while True:
-	for note in song:
-		play_note(note);
+try:
+	while True:
+		reset();
+		for note in song:
+			play_note(note);
+		print("The song has ended, playing again...");
+except KeyboardInterrupt:
+	reset();
+	print("Turning off the piano.");
+	sys.exit(1);
+#end Play Song.
+
+#end Program.

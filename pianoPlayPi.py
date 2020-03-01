@@ -7,33 +7,37 @@
 #	under certain conditions; type `show c' for details.
 
 ########################################
-#		Imports		       #
+#			Imports					   #
 ########################################
 import time
 import sys
 from adafruit_servokit import ServoKit
+#end Imports.
 
 ########################################
-#	Initialize I2C bus             #
+#		Initialize I2C bus             #
 ########################################
 
 # Create the servo connection.
 kit = ServoKit(channels=16)
+#end Initialize I2C bus.
 
 ########################################
-#	Global variables               #
+#		Global variables               #
 ########################################
 
 # Servo angles.
 left = 0;
 off = 90;
 right = 180;
+
 # Song to be played.
 song = [];
 song2 = [];
+#end Global variables.
 
 ########################################
-#	Music notes available          #
+#		Music notes available          #
 ########################################
 
 # Channel of each servo motor.
@@ -53,6 +57,8 @@ mt12 = kit.servo[12];
 mt13 = kit.servo[13];
 mt14 = kit.servo[14];
 mt15 = kit.servo[15];
+
+# Servo motors available.
 motor_list = [mt0,mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10,mt11,mt12,mt13,mt14,mt15]
 
 
@@ -60,6 +66,7 @@ motor_list = [mt0,mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10,mt11,mt12,mt13,mt14,m
 music_notes = {
 	"sil":(mt15,off),
 	
+	# Examples for flat notes.
 	#"sib":(mt0,left),
 	#"lab":(mt0,right),
 	#"re2b":(mt1,right),
@@ -98,9 +105,10 @@ music_notes = {
 	"si2":(mt13,right),
 	"do3":(mt14,left)
 };
+#end Music notes available.
 
 ########################################
-#	Tempo notes defines            #
+#		Note tempo defines             #
 ########################################
 
 # Values of each type of note.
@@ -110,9 +118,12 @@ blancaplus = 1.2;
 blancasemi = 1;
 blanca = 0.8;
 negraplus = 0.6;
+negrasemi = 0.5;
 negra = 0.4;
 corchea = 0.2;
 semicorchea = 0.1;
+ssemicorchea = 0.05;
+sssemicorchea = 0.025;
 
 # Each tempo with each value.
 tempo_notes = {
@@ -122,38 +133,45 @@ tempo_notes = {
 	"b-":blancasemi,
 	"b":blanca,
 	"n+":negraplus,
+	"n-":negrasemi,
 	"n":negra,
 	"c":corchea,
-	"sc":semicorchea
+	"sc":semicorchea,
+	"ssc":ssemicorchea,
+	"sssc":sssemicorchea
 };
+#end Note tempo defines.
 
 ########################################
-#	play_note function             #
+#			usage function             #
 ########################################
 def usage(program_name):
 	print("Usage:\n\tpython3 "+program_name+" partitures/partiture.txt\nor:\n\t./"+program_name+" partitures/partiture.txt");
+#end usage function.
 
 ########################################
-#	play_note function             #
+#		play_note function             #
 ########################################
 def play_note(the_notes):
 	for note in the_notes:
 		(note[0])[0].angle = (note[0])[1];
-		time.sleep(0.01);
+		time.sleep(0.01); # Wait for servo motor change.
 	time.sleep((the_notes[0])[1]);
 	for note in the_notes:
 		(note[0])[0].angle = off;
-		time.sleep(0.01);
+		time.sleep(0.01); # Wait for servo motor change.
+#end play_note function.
 
 ########################################
-#	    reset function             #
+#			reset function             #
 ########################################
 def reset():
 	for motor in motor_list:
 		motor.angle = off;
+#end reset function.
 
 ########################################
-#	get_partitures function        #
+#		get_partitures function        #
 ########################################
 def get_partiture(partiture):
 	try:
@@ -173,7 +191,11 @@ def get_partiture(partiture):
 			song.append(list_notes);
 		except:
 			continue;
+#end get_partitures function.
 
+########################################
+#		get_partituresAcomp function   #
+########################################
 def get_partitureAcomp(partiture):
 	try:
 		song_file = open(partiture,"r");
@@ -192,9 +214,10 @@ def get_partitureAcomp(partiture):
 			song2.append(list_notes);
 		except:
 			continue;
+#end get_partituresAcomp function.
 
 #########################################
-#    Read arguments and get partiture   #
+#    Read arguments and get partitures  #
 #########################################
 
 # Get program name.
@@ -211,6 +234,8 @@ if num_args <= 1:
  
 # Get partiture name.
 partiture = sys.argv[1];
+
+# Get second partiture name if is available.
 if num_args == 3:
 	partiture2 = sys.argv[2];
 
@@ -222,15 +247,16 @@ if partiture == "reset":
 
 # Get the partiture.
 get_partiture(partiture);
+
+# Get the second partiture if is available.
 if num_args == 3:
 	get_partitureAcomp(partiture2);
+#end Read arguments and get partitures.
 
 #########################################
-#		Play Song Threaded	#
+#		Play Song Threaded				#
 #########################################
-def worker(num_thread):
-	if num_thread == 0:
-		print('Playing piano, press Ctrl-C to quit...')
+def worker(num_thread):	
 	try:
 		while True:
 			reset();
@@ -249,28 +275,35 @@ def worker(num_thread):
 			reset();
 			print("Turning off the piano.");
 		sys.exit(1);
-
-#########################################
-#		Play Song		#
-#########################################
+#end function worker.
 
 if num_args == 3:
+	# import thread feature.
 	import threading
 	threads = list();
+	print('Playing piano, press Ctrl-C to quit...')
 	for i in range(2):
 	    t = threading.Thread(target=worker,args=(i,))
 	    threads.append(t);
 	    t.start();
+#end Play Song Threaded
+
 else:
+#########################################
+#		Play Song non-Threaded			#
+#########################################
 	print('Playing piano, press Ctrl-C to quit...')
 	try:
 		while True:
 			reset();
 			for note in song:
-				time.sleep(0.06);
+				time.sleep(0.06); # Modify to your servo motor delay in position changing.
 				play_note(note);
 			print("The song has ended, playing again...");
 	except KeyboardInterrupt:
 		reset();
 		print("Turning off the piano.");
 		sys.exit(1);
+#end Play Song non-Threaded.
+
+#end Program.
