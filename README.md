@@ -7,7 +7,7 @@
 ## **ABSTRACT**
 
 <p align=justify>
-This project is based on my interest in learning to play the piano in my spare time. As everyone knows, learning to play an instrument is difficult and requires a lot of time and dedication. In my case, I am a computer engineer and for lack of time I decided to start a project to start playing the piano using a software teacher implemented with LED lights on each piano key. My interest in this software has increased throughout the development and has ended up becoming a bot that plays the piano.
+This project is based on my interest in learning to play the piano in my spare time. As everyone knows, learning to play an instrument is difficult and requires a lot of time and dedication. In my case, I am a computer engineer and for lack of time I decided to start a project to learn playing the piano using a software teacher implemented with LED lights on each piano key. My interest in this software has increased throughout the development and has ended up becoming a bot that plays the piano.
 </p>
 
 ## **PROGRAMS AVAILABLE ON THIS PROJECT**
@@ -31,7 +31,10 @@ This project is based on my interest in learning to play the piano in my spare t
 
 **GOOGLE ASSISTANT SUPPORT**
 
- The bot can be executed from google assistant, creating commands from a google account and linking the controller device as a home IoT device to launch orders such as: "OK Google, play Bethoven's Fifth Symphony on the piano".
+ The bot can be executed from google assistant, creating commands from a google account and linking the controller device as a home IoT device to launch orders such as: "OK Google, play Bethoven's Fifth Symphony on the piano". Example:<br/>
+ [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/NDVJ9Sw2ylI/0.jpg)](https://www.youtube.com/watch?v=NDVJ9Sw2ylI)
+
+
 
 ## **DOCUMENTATION AND SET UP**
 
@@ -91,7 +94,7 @@ If you want to play *ledPi.py* program you need:
 
     ```./program.py partitures/partiture.txt```
 
-**NOTE: Replace program with the name of the program you want to execute and partiture with the name of the song you want to play from the folder "partitures".**
+**NOTE: Replace "program" with the name of the program you want to execute and "partiture" with the name of the song you want to play from the folder "partitures".**
 
 - ONLY IN *pianoPlayPi.pay* FOR DUAL HAND EMULATION WITH THREADS:
 
@@ -101,7 +104,7 @@ If you want to play *ledPi.py* program you need:
 
     ```./pianoPlayPi.py partitures/partiture_hand_1.txt partitures/partiture_hand_2.txt```
 
-**NOTE: Music sheets for dual hand as in real life shouldn't contains the same notes at the same time, there is no reason to play with two hands the same notes.**
+**NOTE: Music sheets for dual hand simulated piano, as in real life, shouldn't contains the same notes (or piano key) at the same time, there is no reason to play with two hands the same notes.**
 
 ### **MUSIC SHEETS**
 
