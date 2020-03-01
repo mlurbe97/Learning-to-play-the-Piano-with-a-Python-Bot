@@ -16,7 +16,7 @@ This project is based on my interest in learning to play the piano in my spare t
 
 - Program *pianoPlayPi.py* is the program to play with Servo motors.
 - Folder  *partitures* contains example music sheets to play with previous program.
-- **Actual version of the code supports only multiple notes with same tempo in the same thread. Multi-thread is supported for simulate two virtual hands with their own partiture.**
+- **Actual version of the code supports only multiple notes with same tempo in the same thread. Multi-thread is supported for simulate two virtual hands with their own music sheet.**
 
 ### VIRTUAL PIANO
 
