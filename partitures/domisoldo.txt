@@ -1,0 +1,14 @@
+do,n
+mi,n
+sol,n
+do2,n
+la,n
+do2,n
+la,n
+sol,n
+fa,n
+sol,n
+mi,n
+do,n
+re,n
+do,n

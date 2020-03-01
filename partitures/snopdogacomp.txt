@@ -1,0 +1,21 @@
+mi,n
+la1,n	la0,n
+sil,n
+sil,n
+si1,n	si0,n
+mi1,n	mi0,n
+sil,n
+sil,n
+mi1,n	mi0,n
+la1,n	la0,n
+sil,n
+sil,n
+si1,n	si0,n
+mi1,n	mi0,n
+sil,n
+sil,n
+sol1,n	mi1,n	mi0,n
+mi1,n
+la1,n	la0,n
+sil,n
+sil,n

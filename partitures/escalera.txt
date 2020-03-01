@@ -1,0 +1,16 @@
+do,n
+re,n
+mi,n
+fa,n
+sol,n
+la,n
+si,n
+do2,n
+do2,n
+si,n
+la,n
+sol,n
+fa,n
+mi,n
+re,n
+do,n

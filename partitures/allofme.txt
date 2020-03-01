@@ -1,0 +1,72 @@
+do2,n+	fa,n+
+do2,n+	fa,n+
+do2,n	fa,n
+si,n+	fa,n+
+si,n+	fa,n+
+si,n	fa,n
+do2,n+	mi,n+
+do2,n+	mi,n+
+do2,n	mi,n
+si,n+	sol,n+
+si,n+	sol,n+
+si,n	sol,n
+do2,n+	fa,n+
+do2,c	fa,c
+si,c
+do,c
+do2,n	fa,n
+do2,c	fa,c
+do2,c
+do2,n
+do2,n
+la,n	fa,n
+la,b	mi,b
+si,c
+do2,c
+do,n
+si,c	mi,c
+la,c
+si,c
+do2,c
+si,c
+la,c
+la,c
+fa,n+
+fa,c
+si,c
+do2,c
+re2,b-
+do2,c	la,c
+la,n+
+re2,b	la,b
+do2,c	mi,c
+la,n+
+si,n	mi,n
+si,n
+do2,c
+si,n+
+fa,b
+si,c
+do2,c
+do2,n	fa2,n
+do2,c	la,c
+si,c
+do2,n
+do,c
+si,c
+la,c	re,c
+la,c
+mi,b
+si,c
+do2,c
+do2,n
+mi2,c	si,c
+re2,c
+do2,n
+do2,c
+si,c
+la,c	mi,c
+la,c
+fa,b
+sil,r
+sil,r
