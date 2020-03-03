@@ -123,63 +123,63 @@ Music Sheets for the piano are composed by a file of tuples (note,tempo), where 
         <th>Code Style</th>
     </tr>
     <tr>
-        <td>&#119133;&#119133;</td>
+        <td> &#119133; &#119133; </td>
         <td>dr</td>
     </tr>
     <tr>
-        <td>&#119133;</td>
+        <td> &#119133; </td>
         <td>r</td>
     </tr>
     <tr>
-        <td>&#119134;.</td>
+        <td> &#119134; . </td>
         <td>b+</td>
     </tr>
     <tr>
-        <td>&#119134;&#119136;</td>
+        <td> &#119134; &#119136; </td>
         <td>b-</td>
     </tr>
     <tr>
-        <td>&#119134;</td>
+        <td> &#119134; </td>
         <td>b</td>
     </tr>
     <tr>
-        <td>&#119135;.</td>
+        <td> &#119135; . </td>
         <td>n+</td>
     </tr>
     <tr>
-        <td>&#119135;&#119136;</td>
+        <td> &#119135; &#119136; </td>
         <td>n-</td>
     </tr>
     <tr>
-        <td>&#119135;</td>
+        <td> &#119135; </td>
         <td>n</td>
     </tr>
     <tr>
-        <td>&#119136;</td>
+        <td> &#119136; </td>
         <td>c</td>
     </tr>
     <tr>
-        <td>&#119137;</td>
+        <td> &#119137; </td>
         <td>sc</td>
     </tr>
     <tr>
-        <td>&#119139;</td>
+        <td> &#119139; </td>
         <td>ssc</td>
     </tr>
     <tr>
-        <td>&#119140;</td>
+        <td> &#119140; </td>
         <td>sssc</td>
     </tr>
     <tr>
-        <td>&#9837;</td>
+        <td> &#9837; </td>
         <td><i>*Write "b" after the note. Example: "mib" corresponds to note "mi flat".*<i></td>
     </tr>
     <tr>
-        <td>&#9839;</td>
+        <td> &#9839; </td>
         <td><i>*Translate it to flats.*<i></td>
     </tr>
     <tr>
-        <td>Silence</td>
+        <td> Silence </td>
         <td><i>*Same as the type of the note tempo. Example: "(sil,n)" corresponds to silence with the tempo of quarter note( &#119135; ).*<i></td>
     </tr>
 </tbody>
