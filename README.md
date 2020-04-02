@@ -15,7 +15,7 @@ This project is based on my interest in learning to play the piano in my spare t
 ### PIANO PLAYING BOT
 
 - Program *pianoPlayPi.py* is the program to play with Servo motors.
-- Folder  *partitures* contains example music sheets to play with previous program.
+- Folder  *music_sheets* contains example music sheets to play with previous program.
 - **Actual version of the code supports only multiple notes with same tempo in the same thread. Multi-thread is supported for simulate two virtual hands with their own music sheet. Additionally, the actual implementation corresponds to two notes for each servo motor because the actual prototype doesn't have enough space between piano keys.**
 
 ### VIRTUAL PIANO
@@ -34,8 +34,6 @@ This project is based on my interest in learning to play the piano in my spare t
  The bot can be executed from google assistant, creating commands from a google account and linking the controller device as a home IoT device to launch orders such as: "OK Google, play Bethoven's Fifth Symphony on the piano". Example:<br/>
  [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/NDVJ9Sw2ylI/0.jpg)](https://www.youtube.com/watch?v=NDVJ9Sw2ylI)
 
-
-
 ## **DOCUMENTATION AND SET UP**
 
 ### **SOFTWARE REQUISITES**
@@ -46,7 +44,20 @@ This project is based on my interest in learning to play the piano in my spare t
 
 - Install libs for python 3:
 
-    ```sudo python3 -m pip install adafruit-circuitpython-busdevice adafruit-circuitpython-servokit adafruit-circuitpython-pca9685 PCA9685-driver RPi.GPIO```
+    ```sudo -H python3 -m pip install adafruit-circuitpython-busdevice adafruit-circuitpython-servokit adafruit-circuitpython-pca9685 PCA9685-driver RPi.GPIO```
+
+### MIDICOMP
+
+- This lib translates a mid file into txt values, that can be interpreted by the programs.
+
+```
+git clone https://github.com/markc/midicomp
+mkdir midicomp/build
+cd midicomp/build
+cmake ..
+make
+sudo make install #(optional)
+```
 
 ### **HARDWARE REQUISITES**
 
@@ -88,21 +99,21 @@ If you want to play *ledPi.py* program you need:
 
 - Usage:
 
-     ```python3 program.py partitures/partiture.txt```
+     ```python3 program.py music_sheets/music_sheet.txt```
 
      or:
 
-    ```./program.py partitures/partiture.txt```
+    ```./program.py music_sheets/music_sheet.txt```
 
-**NOTE: Replace "program" with the name of the program you want to execute and "partiture" with the name of the song you want to play from the folder "partitures".**
+**NOTE: Replace "program" with the name of the program you want to execute and "music_sheet" with the name of the song you want to play from the folder "music_sheets".**
 
 - ONLY IN *pianoPlayPi.pay* FOR DUAL HAND EMULATION WITH THREADS:
 
-     ```python3 pianoPlayPi.py partitures/partiture_hand_1.txt partitures/partiture_hand_2.txt```
+     ```python3 pianoPlayPi.py music_sheets/music_sheet_hand_1.txt music_sheets/music_sheet_hand_2.txt```
 
      or:
 
-    ```./pianoPlayPi.py partitures/partiture_hand_1.txt partitures/partiture_hand_2.txt```
+    ```./pianoPlayPi.py music_sheets/music_sheet_hand_1.txt music_sheets/music_sheet_hand_2.txt```
 
 **NOTE: Music sheets for dual hand simulated piano, as in real life, shouldn't contains the same notes (or piano keys) at the same time, there is no reason to play with two hands the same notes.**
 

@@ -146,7 +146,7 @@ tempo_notes = {
 #			usage function             #
 ########################################
 def usage(program_name):
-	print("Usage:\n\tpython3 "+program_name+" partitures/partiture.txt\nor:\n\t./"+program_name+" partitures/partiture.txt");
+	print("Usage:\n\tpython3 "+program_name+" music_sheets/music_sheet.txt\nor:\n\t./"+program_name+" music_sheets/music_sheet.txt");
 #end usage function.
 
 ########################################
@@ -171,13 +171,13 @@ def reset():
 #end reset function.
 
 ########################################
-#		get_partitures function        #
+#		get_music_sheets function        #
 ########################################
-def get_partiture(partiture):
+def get_music_sheet(music_sheet):
 	try:
-		song_file = open(partiture,"r");
+		song_file = open(music_sheet,"r");
 	except:
-		print("No partiture called partitures/"+str(partiture)+" found.");
+		print("No music_sheet called music_sheets/"+str(music_sheet)+" found.");
 		sys.exit(1);
 	song_content = song_file.read().split("\n");
 	for notes in song_content:
@@ -191,16 +191,16 @@ def get_partiture(partiture):
 			song.append(list_notes);
 		except:
 			continue;
-#end get_partitures function.
+#end get_music_sheets function.
 
 ########################################
-#		get_partituresAcomp function   #
+#		get_music_sheetsAcomp function   #
 ########################################
-def get_partitureAcomp(partiture):
+def get_music_sheetAcomp(music_sheet):
 	try:
-		song_file = open(partiture,"r");
+		song_file = open(music_sheet,"r");
 	except:
-		print("No partiture called partitures/"+str(partiture)+" found.");
+		print("No music_sheet called music_sheets/"+str(music_sheet)+" found.");
 		sys.exit(1);
 	song_content = song_file.read().split("\n");
 	for notes in song_content:
@@ -214,10 +214,10 @@ def get_partitureAcomp(partiture):
 			song2.append(list_notes);
 		except:
 			continue;
-#end get_partituresAcomp function.
+#end get_music_sheetsAcomp function.
 
 #########################################
-#    Read arguments and get partitures  #
+#    Read arguments and get music_sheets  #
 #########################################
 
 # Get program name.
@@ -226,32 +226,32 @@ program_name = sys.argv[0].replace("./","");
 # Get number of arguments.
 num_args = len(sys.argv);
 
-# Exit program if no partiture are selected.
+# Exit program if no music_sheet are selected.
 if num_args <= 1:
-	print("No partiture selected");
+	print("No music_sheet selected");
 	usage(program_name);
 	sys.exit(1);
  
-# Get partiture name.
-partiture = sys.argv[1];
+# Get music_sheet name.
+music_sheet = sys.argv[1];
 
-# Get second partiture name if is available.
+# Get second music_sheet name if is available.
 if num_args == 3:
-	partiture2 = sys.argv[2];
+	music_sheet2 = sys.argv[2];
 
-# If partiture name is reset, reset motors and end program.
-if partiture == "reset":
+# If music_sheet name is reset, reset motors and end program.
+if music_sheet == "reset":
 	reset();
 	print("Reset notes");
 	sys.exit(1);
 
-# Get the partiture.
-get_partiture(partiture);
+# Get the music_sheet.
+get_music_sheet(music_sheet);
 
-# Get the second partiture if is available.
+# Get the second music_sheet if is available.
 if num_args == 3:
-	get_partitureAcomp(partiture2);
-#end Read arguments and get partitures.
+	get_music_sheetAcomp(music_sheet2);
+#end Read arguments and get music_sheets.
 
 #########################################
 #		Play Song Threaded				#
